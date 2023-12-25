@@ -13,7 +13,7 @@
 
 
 
-    <section style="position: fixed; z-index: 1;" class="relative w-full px-8 text-gray-700 bg-white body-font" data-tails-scripts="//unpkg.com/alpinejs" {!!
+    <section style="position: fixed; z-index: 1; scroll-behavior: smooth;" class="relative w-full px-8 text-gray-700 bg-white body-font" data-tails-scripts="//unpkg.com/alpinejs" {!!
         $attributes ?? '' !!}>
         <div class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
             <a href="#_"
@@ -57,7 +57,7 @@
                             x-transition:leave-start="scale-100" x-transition:leave-end="scale-0"></span>
                     </span>
                 </a>
-                <a href="#_"
+                <a href="#Rating"
                     class="relative font-medium leading-6 text-gray-600 transition duration-150 ease-out hover:text-gray-900"
                     x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false">
                     <span class="block">Review</span>
@@ -72,7 +72,7 @@
             </nav>
 
             <div class="relative z-10 inline-flex items-center space-x-3 md:ml-5 lg:justify-end">
-                <a href="login.html"
+                <a href="index.html"
                     class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-gray-600 whitespace-no-wrap bg-white border border-gray-200 rounded-md shadow-sm hover:bg-gray-900 hover:text-white transition focus:outline-none focus:shadow-none"
                     data-rounded="rounded-md">
                     Log out
@@ -119,9 +119,9 @@
             }
         }, 3);
     "
-    class="max-w-6xl mx-auto py-40 invisible block text-6xl font-bold custom-font " style="margin-left:17.5%;"
+    class="max-w-6xl mx-auto py-40 invisible block text-6xl font-bold custom-font" style="margin-left:16%;"
     >
-Chào mừng bạn đã đến với Báo.
+Chào mừng bạn đã đến với Báo2.
     </h1>
 
 
@@ -130,7 +130,7 @@ Chào mừng bạn đã đến với Báo.
 
 
 
-    <section class="py-20 bg-white" id="Giới thiệu">
+    <section class="py-20 bg-white" id="Giới thiệu" style="margin-top: -150px;">
         <div class="container max-w-6xl mx-auto">
             <h2 class="text-4xl font-bold tracking-tight text-center">Giới thiệu về Báo2</h2>
             <p class="mt-2 text-lg text-center text-gray-600">Báo 2 hơn có 1 tí...so với Báo</p>
@@ -149,9 +149,8 @@ Chào mừng bạn đã đến với Báo.
                             <path d="M4.5 17l-1.5 5l3 -1.5l3 1.5l-1.5 -5" />
                         </svg>
                     </div>
-                    <h4 class="text-xl font-medium text-gray-700">Giao diện mới</h4>
-                    <p class="text-base text-center text-gray-500">Each of our plan will provide you and your team with
-                        certifications.</p>
+                    <h4 class="text-xl font-medium text-gray-700">Một trang Báo mới</h4>
+                    <p class="text-base text-center text-gray-500">Tất nhiên vẫn sẽ có vấn đề, nhưng đỡ hơn bài trước</p>
                 </div>
 
                 <div class="flex flex-col items-center justify-between col-span-4 px-8 py-12 space-y-4 bg-gray-100 sm:rounded-xl"
@@ -272,7 +271,7 @@ Chào mừng bạn đã đến với Báo.
                 </div>
                 <div class="flex flex-col items-start justify-center w-full h-full py-6 mb-6 md:mb-0 md:w-1/2">
                     <div class="flex flex-col items-start justify-center h-full space-y-3 transform md:pl-10 lg:pl-16 md:space-y-5">
-                        <div class="bg-pink-500 flex items-center pl-2 pr-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
+                        <div class="bg-gray-800 flex items-center pl-2 pr-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
                             <svg class="w-3.5 h-3.5 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                             <span>Featured</span>
                         </div>
@@ -362,10 +361,42 @@ Chào mừng bạn đã đến với Báo.
 
 
 
+    <section class=" px-4 py-16 bg-white xl:px-1" style="margin-left: 34%; margin-bottom: 20px;" id="Rating">
+        <div class="mx-auto">
+            <div class="flex flex-col items-center md:flex-row">
+
+    <div class="w-full mt-16 md:mt-0 md:w-1/2">
+        <div class="relative z-10 h-auto p-8 py-10 overflow-hidden bg-white border-b-2 border-gray-700 rounded-lg shadow-2xl px-7" data-rounded="rounded-lg" data-rounded-max="rounded-full">
+            <h3 class="mb-6 text-2xl font-medium text-center">Hãy nêu cảm nhận của bạn về Báo.</h3>
+            <input type="text" name="email" id="email" class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 transition rounded-lg focus:ring focus:ring-indigo-800 focus:outline-none" data-rounded="rounded-lg" data-primary="blue-500" placeholder="Cảm nhận của bạn về Báo2 thế nào?">
+            <input type="password" name="password" id="password" class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 transition rounded-lg focus:ring focus:ring-indigo-800 focus:outline-none" data-rounded="rounded-lg" data-primary="blue-500" placeholder="Bạn có mong muốn gì về Báo2?">
+            
+            <div class=" custom-font text-black">
+                <p class="px-10 font-semibold text-2xl py-4">Bạn sẽ cho Báo 2 mấy sao?</p>
+                <input type="radio" name="Rating" value="1" id="rating-1" class="text-1xl"
+                    style="margin-right: 5px; margin-left: 10px">1
+                <input type="radio" name="Rating" value="2" id="rating-2"
+                    style="margin-left: 50px; margin-right: 5px;" class="text-1xl">2
+                <input type="radio" name="Rating" value="3" id="rating-3"
+                    style="margin-left: 50px; margin-right: 5px;" class="text-1xl">3
+                <input type="radio" name="Rating" value="4" id="rating-4"
+                    style="margin-left: 50px; margin-right: 5px;" class="text-1xl">4
+                <input type="radio" name="Rating" value="5" id="rating-5"
+                    style="margin-left: 50px; margin-right: 5px;" class="text-1xl">5
+            </div>
+            
+            <div class="block" style="margin-top: 20px">
+                <button class="w-full px-3 py-4 font-medium text-white bg-indigo-800 rounded-lg hover:bg-gray-900 transition" data-primary="blue-600" data-rounded="rounded-lg">Đánh giá</button>
+            </div>
+        </div>
+    </div>
+            
 
 
 
 
+        </div>
+    </section>
 
 
     
