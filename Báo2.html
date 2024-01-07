@@ -14,7 +14,8 @@
 
 
 
-    <section style="position: fixed; z-index: 1; scroll-behavior: smooth;" class="relative w-full px-8 text-gray-700 bg-white body-font " data-tails-scripts="//unpkg.com/alpinejs" {!!
+    <section style="position: fixed; z-index: 1; scroll-behavior: smooth;"
+        class="relative w-full px-8 text-gray-700 bg-white body-font " data-tails-scripts="//unpkg.com/alpinejs" {!!
         $attributes ?? '' !!}>
         <div class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
             <a href="#_"
@@ -107,8 +108,7 @@
             script.src = url;
             document.head.appendChild(script);
         }
-    }"
-    x-init="
+    }" x-init="
         splitCharactersIntoSpans($el);
         if(addCNDScript){
             addScriptToHead('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js');
@@ -119,10 +119,8 @@
                 clearInterval(gsapInterval);
             }
         }, 3);
-    "
-    class="max-w-6xl mx-auto py-40 invisible block text-6xl font-bold custom-font" style="margin-left:16%;"
-    >
-Chào mừng bạn đã đến với Báo2.
+    " class="max-w-6xl mx-auto py-40 invisible block text-6xl font-bold custom-font" style="margin-left:16%;">
+        Chào mừng bạn đã đến với Báo2.
     </h1>
 
 
@@ -151,7 +149,7 @@ Chào mừng bạn đã đến với Báo2.
                         </svg>
                     </div>
                     <h4 class="text-xl font-medium text-gray-700">Một trang Báo mới</h4>
-                    <p class="text-base text-center text-gray-500">Tất nhiên vẫn sẽ có vấn đề, nhưng đỡ hơn bài trước</p>
+                    <p class="text-base text-center text-gray-500">Đây là website để nối tiếp trang Báo cũ.</p>
                 </div>
 
                 <div class="flex flex-col items-center justify-between col-span-4 px-8 py-12 space-y-4 bg-gray-100 sm:rounded-xl"
@@ -168,7 +166,8 @@ Chào mừng bạn đã đến với Báo2.
                         </svg>
                     </div>
                     <h4 class="text-xl font-medium text-gray-700">Giao diện</h4>
-                    <p class="text-base text-center text-gray-500">Trông cũng khá hơn lần trước (đây chưa phải là bản cuối)</p>
+                    <p class="text-base text-center text-gray-500">Một trang Báo mới, một giao diện mới (đây chưa phải
+                        là bản cuối)</p>
                 </div>
 
                 <div class="flex flex-col items-center justify-between col-span-4 px-8 py-12 space-y-4 bg-gray-100 sm:rounded-xl"
@@ -201,9 +200,9 @@ Chào mừng bạn đã đến với Báo2.
                             <rect x="3" y="4" width="18" height="16" rx="2" />
                         </svg>
                     </div>
-                    <h4 class="text-xl font-medium text-gray-700">Developer Tools</h4>
-                    <p class="text-base text-center text-gray-500">Developer tools to help grow your application and
-                        keep it up-to-date.</p>
+                    <h4 class="text-xl font-medium text-gray-700">Tính năng</h4>
+                    <p class="text-base text-center text-gray-500">Một số tính năng mới riêng biệt để nối tiếp trang Báo
+                        cũ.</p>
                 </div>
 
                 <div class="flex flex-col items-center justify-between col-span-4 px-8 py-12 space-y-4 bg-gray-100 sm:rounded-xl"
@@ -220,9 +219,8 @@ Chào mừng bạn đã đến với Báo2.
                                 d="M7 5h1v-2h8v2h1a3 3 0 0 1 3 3v9a3 3 0 0 1 -3 3v1h-10v-1a3 3 0 0 1 -3 -3v-9a3 3 0 0 1 3 -3" />
                         </svg>
                     </div>
-                    <h4 class="text-xl font-medium text-gray-700">Building Blocks</h4>
-                    <p class="text-base text-center text-gray-500">The right kind of building blocks to take your
-                        company to the next level.</p>
+                    <h4 class="text-xl font-medium text-gray-700">Cách đăng nhập</h4>
+                    <p class="text-base text-center text-gray-500">Giờ đây không chỉ có mỗi cách login và signup</p>
                 </div>
 
                 <div class="flex flex-col items-center justify-between col-span-4 px-8 py-12 space-y-4 bg-gray-100 sm:rounded-xl"
@@ -239,9 +237,8 @@ Chào mừng bạn đã đến với Báo2.
                                 d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2" />
                         </svg>
                     </div>
-                    <h4 class="text-xl font-medium text-gray-700">Coupons</h4>
-                    <p class="text-base text-center text-gray-500">Coupons system to provide special offers and
-                        discounts for your app.</p>
+                    <h4 class="text-xl font-medium text-gray-700">Niềm vui mới</h4>
+                    <p class="text-base text-center text-gray-500">Chúc bạn vui vẻ khi đọc Báo2!</p>
                 </div>
 
             </div>
@@ -252,7 +249,7 @@ Chào mừng bạn đã đến với Báo2.
 
 
 
-    
+
 
     <section class="bg-white" id="Báo">
 
@@ -350,140 +347,188 @@ Chào mừng bạn đã đến với Báo2.
                     console.log('item:', item);
                 }
             });
-        " 
-        @keydown.down="event.preventDefault(); commandItemActiveNext();" 
-        @keydown.up="event.preventDefault(); commandItemActivePrevious()" 
-        @keydown.enter="commandItemSelected=commandItemActive;" 
-        class="flex min-h-[370px] justify-center w-full max-w-xl items-start" x-cloak>
-        <div class="flex flex-col w-full h-full overflow-hidden bg-white border rounded-lg shadow-md">
-            <div class="flex items-center px-3 border-b">
-                <svg class="w-6 h-4 mr-0 text-neutral-400 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
-                <input type="text" x-ref="commandInput" x-model="commandSearch" class="flex w-full px-2 py-3 text-sm bg-transparent border-0 rounded-md outline-none focus:outline-none focus:ring-0 focus:border-0 placeholder:text-neutral-400 h-11 disabled:cursor-not-allowed disabled:opacity-50" placeholder="Type a command or search..." autocomplete="off" autocorrect="off" spellcheck="false">
-            </div>
-            <div x-ref="commandItemsList" class="max-h-[320px] overflow-y-auto overflow-x-hidden">
-                <template x-for="(item, index) in commandItemsFiltered" :key="'item-' + index">
-    
-                    <div class="pb-1 space-y-1">
-                        <template x-if="commandShowCategory(item, index)">
-                            <div class="px-1 overflow-hidden text-gray-700">
-                                <div class="px-2 py-1 my-1 text-xs font-medium text-neutral-500" x-text="commandCategoryCapitalize(item.category)"></div>
-                            </div>
-                        </template>
-                        
-                        <template x-if="(item.default && commandSearchIsEmpty()) || !commandSearchIsEmpty()">
-                            <div class="px-1">
-                                <div :id="item.value + '-' + commandId" @click="commandItemSelected=item" @mousemove="commandItemActive=item" :class="{ 'bg-neutral-100 text-gray-900' : commandItemIsActive(item) }" class="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
-                                    <span x-html="item.icon"></span>
-                                    <span x-text="item.title"></span>
-                                    <template x-if="item.right">
-                                        <span class="ml-auto text-xs tracking-widest text-muted-foreground" x-text="item.right"></span>
-                                    </template>
+        " @keydown.down="event.preventDefault(); commandItemActiveNext();"
+            @keydown.up="event.preventDefault(); commandItemActivePrevious()"
+            @keydown.enter="commandItemSelected=commandItemActive;"
+            class="flex min-h-[370px] justify-center w-full max-w-xl items-start" x-cloak>
+            <div class="flex flex-col w-full h-full overflow-hidden bg-white border rounded-lg shadow-md">
+                <div class="flex items-center px-3 border-b">
+                    <svg class="w-6 h-4 mr-0 text-neutral-400 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+                    </svg>
+                    <input type="text" x-ref="commandInput" x-model="commandSearch"
+                        class="flex w-full px-2 py-3 text-sm bg-transparent border-0 rounded-md outline-none focus:outline-none focus:ring-0 focus:border-0 placeholder:text-neutral-400 h-11 disabled:cursor-not-allowed disabled:opacity-50"
+                        placeholder="Type to search" autocomplete="on" autocorrect="off" spellcheck="false">
+                </div>
+                <div x-ref="commandItemsList" class="max-h-[320px] overflow-y-auto overflow-x-hidden">
+                    <template x-for="(item, index) in commandItemsFiltered" :key="'item-' + index">
+
+                        <div class="pb-1 space-y-1">
+                            <template x-if="commandShowCategory(item, index)">
+                                <div class="px-1 overflow-hidden text-gray-700">
+                                    <div class="px-2 py-1 my-1 text-xs font-medium text-neutral-500"
+                                        x-text="commandCategoryCapitalize(item.category)"></div>
                                 </div>
-                            </div>
-                        </template>
-                    </div>
-    
-                </template>
+                            </template>
+
+                            <template x-if="(item.default && commandSearchIsEmpty()) || !commandSearchIsEmpty()">
+                                <div class="px-1">
+                                    <div :id="item.value + '-' + commandId" @click="commandItemSelected=item"
+                                        @mousemove="commandItemActive=item"
+                                        :class="{ 'bg-neutral-100 text-gray-900' : commandItemIsActive(item) }"
+                                        class="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
+                                        <span x-html="item.icon"></span>
+                                        <span x-text="item.title"></span>
+                                        <template x-if="item.right">
+                                            <span class="ml-auto text-xs tracking-widest text-muted-foreground"
+                                                x-text="item.right"></span>
+                                        </template>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+
+                    </template>
+                </div>
             </div>
         </div>
-    </div>
 
 
 
 
-        <div class="w-full px-5 py-10 mx-auto space-y-5 sm:py-8 md:py-12 sm:space-y-8 md:space-y-16 max-w-7xl" style="margin-top: -300px;">
+        <div class="w-full px-5 py-10 mx-auto space-y-5 sm:py-8 md:py-12 sm:space-y-8 md:space-y-16 max-w-7xl"
+            style="margin-top: -300px;">
 
             <div class="flex flex-col items-center sm:px-5 md:flex-row">
                 <div class="w-full md:w-1/2">
                     <a href="#_" class="block">
-                        <img class="object-cover w-full h-full rounded-lg max-h-64 sm:max-h-96" src="https://cdn.devdojo.com/images/may2021/cupcakes.jpg">
+                        <img class="object-cover w-full h-full rounded-lg max-h-64 sm:max-h-96"
+                            src="https://cdn.devdojo.com/images/may2021/cupcakes.jpg">
                     </a>
                 </div>
                 <div class="flex flex-col items-start justify-center w-full h-full py-6 mb-6 md:mb-0 md:w-1/2">
-                    <div class="flex flex-col items-start justify-center h-full space-y-3 transform md:pl-10 lg:pl-16 md:space-y-5">
-                        <div class="bg-gray-800 flex items-center pl-2 pr-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
-                            <svg class="w-3.5 h-3.5 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <div
+                        class="flex flex-col items-start justify-center h-full space-y-3 transform md:pl-10 lg:pl-16 md:space-y-5">
+                        <div
+                            class="bg-gray-800 flex items-center pl-2 pr-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
+                            <svg class="w-3.5 h-3.5 mr-1" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
+                            </svg>
                             <span>Featured</span>
                         </div>
-                        <h1 class="text-4xl font-bold leading-none lg:text-5xl xl:text-6xl"><a href="#_">Savory Templates. Sweet Designs.</a></h1>
-                        <p class="pt-2 text-sm font-medium">by <a href="#_" class="mr-1 underline">John Doe</a> · <span class="mx-1">April 23rd, 2021</span> · <span class="mx-1 text-gray-600">5 min. read</span></p>
+                        <h1 class="text-4xl font-bold leading-none lg:text-5xl xl:text-6xl"><a href="#_">Savory
+                                Templates. Sweet Designs.</a></h1>
+                        <p class="pt-2 text-sm font-medium">by <a href="#_" class="mr-1 underline">John Doe</a> · <span
+                                class="mx-1">April 23rd, 2021</span> · <span class="mx-1 text-gray-600">5 min.
+                                read</span></p>
                     </div>
                 </div>
             </div>
-    
+
             <div class="flex grid grid-cols-12 pb-10 sm:px-5 gap-x-8 gap-y-16">
                 <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
                     <a href="#_" class="block">
-                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56" src="https://cdn.devdojo.com/images/may2021/fruit.jpg">
+                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56"
+                            src="https://cdn.devdojo.com/images/may2021/fruit.jpg">
                     </a>
-                    <div class="bg-purple-500 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
+                    <div
+                        class="bg-purple-500 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
                         <span>Lifestyle</span>
                     </div>
-                    <h2 class="text-lg font-bold sm:text-xl md:text-2xl"><a href="#_">Creating a Future Worth Living</a></h2>
-                    <p class="text-sm text-gray-500">Learn the attributes you need to gain in order to build a future and create a life that you are truly happy with.</p>
-                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Mary Jane</a> · <span class="mx-1">April 17, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
+                    <h2 class="text-lg font-bold sm:text-xl md:text-2xl"><a href="#_">Creating a Future Worth Living</a>
+                    </h2>
+                    <p class="text-sm text-gray-500">Learn the attributes you need to gain in order to build a future
+                        and create a life that you are truly happy with.</p>
+                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Mary Jane</a> · <span
+                            class="mx-1">April 17, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
                 </div>
-    
+
                 <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
                     <a href="#_" class="block">
-                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56" src="https://cdn.devdojo.com/images/may2021/workout.jpg">
+                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56"
+                            src="https://cdn.devdojo.com/images/may2021/workout.jpg">
                     </a>
-                    <div class="bg-pink-500 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
+                    <div
+                        class="bg-pink-500 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
                         <span>Health</span>
                     </div>
                     <h2 class="text-lg font-bold sm:text-xl md:text-2xl">The Healther Version of Yourself</h2>
-                    <p class="text-sm text-gray-500">If you want to excel in life and become a better version of yourself, you'll need to upgrade your life.</p>
-                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Fred Jones</a> · <span class="mx-1">April 10, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
+                    <p class="text-sm text-gray-500">If you want to excel in life and become a better version of
+                        yourself, you'll need to upgrade your life.</p>
+                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Fred Jones</a> · <span
+                            class="mx-1">April 10, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
                 </div>
-    
+
                 <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
                     <a href="#_" class="block">
-                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56" src="https://cdn.devdojo.com/images/may2021/food.jpg">
+                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56"
+                            src="https://cdn.devdojo.com/images/may2021/food.jpg">
                     </a>
-                    <div class="bg-red-500 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
+                    <div
+                        class="bg-red-500 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
                         <span>Food</span>
                     </div>
                     <h2 class="text-lg font-bold sm:text-xl md:text-2xl">Enjoy the Meals of the Kings</h2>
-                    <p class="text-sm text-gray-500">Take the time to enjoy the life that you've created. It's totally fine to live like kings and eat like royalty.</p>
-                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Mike Roberts</a> · <span class="mx-1">April 6, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
+                    <p class="text-sm text-gray-500">Take the time to enjoy the life that you've created. It's totally
+                        fine to live like kings and eat like royalty.</p>
+                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Mike Roberts</a> · <span
+                            class="mx-1">April 6, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
                 </div>
-    
+
                 <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
                     <a href="#_" class="block">
-                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg max-h-56" src="https://cdn.devdojo.com/images/may2021/books.jpg">
+                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg max-h-56"
+                            src="https://cdn.devdojo.com/images/may2021/books.jpg">
                     </a>
-                    <div class="bg-blue-500 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
+                    <div
+                        class="bg-blue-500 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
                         <span>Motivation</span>
                     </div>
                     <h2 class="text-lg font-bold sm:text-xl md:text-2xl">Writing for Success</h2>
-                    <p class="text-sm text-gray-500">Writing about your plans for success is extremely helpful for yourself and it will allow you to share your story.</p>
-                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Tom Johnson</a> · <span class="mx-1">May 25, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
+                    <p class="text-sm text-gray-500">Writing about your plans for success is extremely helpful for
+                        yourself and it will allow you to share your story.</p>
+                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Tom Johnson</a> · <span
+                            class="mx-1">May 25, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
                 </div>
-    
+
                 <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
                     <a href="#_" class="block">
-                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg max-h-56" src="https://cdn.devdojo.com/images/may2021/clock.jpg">
+                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg max-h-56"
+                            src="https://cdn.devdojo.com/images/may2021/clock.jpg">
                     </a>
-                    <div class="bg-gray-800 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
+                    <div
+                        class="bg-gray-800 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
                         <span>Business</span>
                     </div>
                     <h2 class="text-lg font-bold sm:text-xl md:text-2xl">Simple Time Management</h2>
-                    <p class="text-sm text-gray-500">Managing your time can make the difference between getting ahead in life or staying exactly where you are.</p>
-                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Scott Reedman</a> · <span class="mx-1">May 18, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
+                    <p class="text-sm text-gray-500">Managing your time can make the difference between getting ahead in
+                        life or staying exactly where you are.</p>
+                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Scott Reedman</a> · <span
+                            class="mx-1">May 18, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
                 </div>
-    
+
                 <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
                     <a href="#_" class="block">
-                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg max-h-56" src="https://cdn.devdojo.com/images/may2021/lemons.jpg">
+                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg max-h-56"
+                            src="https://cdn.devdojo.com/images/may2021/lemons.jpg">
                     </a>
-                    <div class="bg-yellow-400 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
+                    <div
+                        class="bg-yellow-400 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
                         <span>Nutrition</span>
                     </div>
                     <h2 class="text-lg font-bold sm:text-xl md:text-2xl">The Fruits Life</h2>
-                    <p class="text-sm text-gray-500">Take a moment and enjoy to enjoy the many fruits of life. Relaxation and a healthy diet can go a long way.</p>
-                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Jake Caldwell</a> · <span class="mx-1">May 15, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
+                    <p class="text-sm text-gray-500">Take a moment and enjoy to enjoy the many fruits of life.
+                        Relaxation and a healthy diet can go a long way.</p>
+                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Jake Caldwell</a> · <span
+                            class="mx-1">May 15, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
                 </div>
-    
+
             </div>
         </div>
     </section>
@@ -495,41 +540,50 @@ Chào mừng bạn đã đến với Báo2.
         <div class="mx-auto">
             <div class="flex flex-col items-center md:flex-row">
 
-    <div class="w-full mt-16 md:mt-0 md:w-1/2">
-        <div class="relative z-10 h-auto p-8 py-10 overflow-hidden bg-white border-b-2 border-gray-700 rounded-lg shadow-2xl px-7" data-rounded="rounded-lg" data-rounded-max="rounded-full">
-            <h3 class="mb-6 text-2xl font-medium text-center">Hãy nêu cảm nhận của bạn về Báo2.</h3>
-            <input type="text" name="email" id="email" class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 transition duration-300 rounded-lg focus:ring focus:ring-indigo-800 focus:outline-none" data-rounded="rounded-lg" data-primary="blue-500" placeholder="Cảm nhận của bạn về Báo2 thế nào?">
-            <input type="password" name="password" id="password" class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 transition duration-300 rounded-lg focus:ring focus:ring-indigo-800 focus:outline-none" data-rounded="rounded-lg" data-primary="blue-500" placeholder="Bạn có mong muốn gì về Báo2?">
-            
-            <div class=" custom-font text-black">
-                <p class="px-10 font-semibold text-2xl py-4">Bạn sẽ cho Báo 2 mấy sao?</p>
-                <input type="radio" name="Rating" value="1" id="rating-1" class="text-1xl"
-                    style="margin-right: 5px; margin-left: 10px">1
-                <input type="radio" name="Rating" value="2" id="rating-2"
-                    style="margin-left: 50px; margin-right: 5px;" class="text-1xl">2
-                <input type="radio" name="Rating" value="3" id="rating-3"
-                    style="margin-left: 50px; margin-right: 5px;" class="text-1xl">3
-                <input type="radio" name="Rating" value="4" id="rating-4"
-                    style="margin-left: 50px; margin-right: 5px;" class="text-1xl">4
-                <input type="radio" name="Rating" value="5" id="rating-5"
-                    style="margin-left: 50px; margin-right: 5px;" class="text-1xl">5
+                <div class="w-full mt-16 md:mt-0 md:w-1/2">
+                    <div class="relative z-10 h-auto p-8 py-10 overflow-hidden bg-white border-b-2 border-gray-700 rounded-lg shadow-2xl px-7"
+                        data-rounded="rounded-lg" data-rounded-max="rounded-full">
+                        <h3 class="mb-6 text-2xl font-medium text-center">Hãy nêu cảm nhận của bạn về Báo2.</h3>
+                        <input type="text" name="email" id="email"
+                            class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 transition duration-300 rounded-lg focus:ring focus:ring-indigo-800 focus:outline-none"
+                            data-rounded="rounded-lg" data-primary="blue-500"
+                            placeholder="Cảm nhận của bạn về Báo2 thế nào?">
+                        <input type="password" name="password" id="password"
+                            class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 transition duration-300 rounded-lg focus:ring focus:ring-indigo-800 focus:outline-none"
+                            data-rounded="rounded-lg" data-primary="blue-500"
+                            placeholder="Bạn có mong muốn gì về Báo2?">
+
+                        <div class=" custom-font text-black">
+                            <p class="px-10 font-semibold text-2xl py-4">Bạn sẽ cho Báo 2 mấy sao?</p>
+                            <input type="radio" name="Rating" value="1" id="rating-1" class="text-1xl"
+                                style="margin-right: 5px; margin-left: 10px">1
+                            <input type="radio" name="Rating" value="2" id="rating-2"
+                                style="margin-left: 50px; margin-right: 5px;" class="text-1xl">2
+                            <input type="radio" name="Rating" value="3" id="rating-3"
+                                style="margin-left: 50px; margin-right: 5px;" class="text-1xl">3
+                            <input type="radio" name="Rating" value="4" id="rating-4"
+                                style="margin-left: 50px; margin-right: 5px;" class="text-1xl">4
+                            <input type="radio" name="Rating" value="5" id="rating-5"
+                                style="margin-left: 50px; margin-right: 5px;" class="text-1xl">5
+                        </div>
+
+                        <div class="block" style="margin-top: 20px">
+                            <button
+                                class="w-full px-3 py-4 font-medium text-white bg-indigo-800 rounded-lg hover:bg-gray-900 transition duration-300"
+                                data-primary="blue-600" data-rounded="rounded-lg">Đánh giá</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
             </div>
-            
-            <div class="block" style="margin-top: 20px">
-                <button class="w-full px-3 py-4 font-medium text-white bg-indigo-800 rounded-lg hover:bg-gray-900 transition duration-300" data-primary="blue-600" data-rounded="rounded-lg">Đánh giá</button>
-            </div>
-        </div>
-    </div>
-            
-
-
-
-
-        </div>
     </section>
 
 
-    
+
 
 
 
@@ -539,7 +593,8 @@ Chào mừng bạn đã đến với Báo2.
     <section class="text-gray-700 bg-white body-font" {!! $attributes ?? '' !!}>
         <div class="container flex flex-col items-center px-8 py-8 mx-auto max-w-7xl sm:flex-row">
             <a href="#_"
-                class="text-xl font-black leading-none text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-red-500 to-purple-500 select-none logo">Báo2. </a>
+                class="text-xl font-black leading-none text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-red-500 to-purple-500 select-none logo">Báo2.
+            </a>
             <p class="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:mt-0">&copy;Creds:
                 PinesUI
             </p>
