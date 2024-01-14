@@ -42,29 +42,3 @@ signupForm?.addEventListener("submit", function (event) {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-const loginForm = document.getElementById("login-form");
-
-loginForm?.addEventListener("submit", function (event) {
-    event.preventDefault();
-    const email = document.getElementById('loginemail').value;
-    const password = document.getElementById('loginpassword').value;
-    const data = localStorage.getItem('users');
-    const list_of_users = JSON.parse(data);
-    if (check_user_in_list(email, password, list_of_users)) {
-        alert("Đăng nhập thành công!");
-        location.href = "Báo2.html";
-    } else {
-        alert("Tài khoản hoặc mật khẩu chưa chính xác!");
-    }
-});
-
-function check_user_in_list(email, password, list_of_users) {
-    for (const user of list_of_users) {
-        if (user.email === email && user.password === password) {
-            return true;
-        }
-    }
-    return false;
-};
-});
