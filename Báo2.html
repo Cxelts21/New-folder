@@ -261,95 +261,8 @@
         </p>
 
 
-        <div style="margin-left: 27%; margin-top: 50px;" x-data="{
-            commandItems: {
-                recommended : [
-                    {
-
-                    },
-                ],
-                
-            },
-            commandItemsFiltered: [],
-            commandItemActive: null,
-            commandItemSelected: null,
-            commandId: $id('command'),
-            commandSearch: '',
-            commandSearchIsEmpty() {
-                return this.commandSearch.length == 0;
-            },
-            commandItemIsActive(item) {
-                return this.commandItemActive && this.commandItemActive.value==item.value;
-            },
-            commandItemActiveNext(){
-                let index = this.commandItemsFiltered.indexOf(this.commandItemActive);
-                if(index < this.commandItemsFiltered.length-1){
-                    this.commandItemActive = this.commandItemsFiltered[index+1];
-                    this.commandScrollToActiveItem();
-                }
-            },
-            commandItemActivePrevious(){
-                let index = this.commandItemsFiltered.indexOf(this.commandItemActive);
-                if(index > 0){
-                    this.commandItemActive = this.commandItemsFiltered[index-1];
-                    this.commandScrollToActiveItem();
-                }
-            },
-            commandScrollToActiveItem(){
-                if(this.commandItemActive){
-                    activeElement = document.getElementById(this.commandItemActive.value + '-' + this.commandId)
-                    if(!activeElement) return;
-                    
-                    newScrollPos = (activeElement.offsetTop + activeElement.offsetHeight) - this.$refs.commandItemsList.offsetHeight;
-                    if(newScrollPos > 0){
-                        this.$refs.commandItemsList.scrollTop=newScrollPos;
-                    } else {
-                        this.$refs.commandItemsList.scrollTop=0;
-                    }
-                }
-            },
-            commandSearchItems() {
-                if(!this.commandSearchIsEmpty()){
-                    searchTerm = this.commandSearch.replace(/\*/g, '').toLowerCase();
-                    this.commandItemsFiltered = this.commandItems.filter(item => item.title.toLowerCase().startsWith(searchTerm));
-                    
-                    this.commandScrollToActiveItem();
-                } else {
-                    this.commandItemsFiltered = this.commandItems.filter(item => item.default);
-                }
-                this.commandItemActive = this.commandItemsFiltered[0];
-            },
-            commandShowCategory(item, index){
-                if(index == 0) return true;
-                if(typeof this.commandItems[index-1] === 'undefined') return false;
-                return item.category != this.commandItems[index-1].category;
-            },
-            commandCategoryCapitalize(string){
-                return string.charAt(0).toUpperCase() + string.slice(1);
-            },
-            commandItemsReorganize(){
-                commandItemsOriginal = this.commandItems;
-                keys = Object.keys(this.commandItems);
-                this.commandItems = [];
-                keys.forEach((key, index) => {
-                    for(i=0; i<commandItemsOriginal[key].length; i++){
-                        commandItemsOriginal[key][i].category = key;
-                        this.commandItems.push( commandItemsOriginal[key][i] );
-                    }
-                });
-            }
-        }" x-init="
-            commandItemsReorganize();
-            commandSearchItems();
-            $watch('commandSearch', value => commandSearchItems());
-            $watch('commandItemSelected', function(item){
-                if(item){
-                    console.log('item:', item);
-                }
-            });
-        " @keydown.down="event.preventDefault(); commandItemActiveNext();"
-            @keydown.up="event.preventDefault(); commandItemActivePrevious()"
-            @keydown.enter="commandItemSelected=commandItemActive;"
+        <div style="margin-left: 27%; margin-top: 50px;" x-data="{}"
+            @keydown.enter="window.location.href = `/search.html?q=${$refs.commandInput.value}`"
             class="flex min-h-[370px] justify-center w-full max-w-xl items-start" x-cloak>
             <div class="flex flex-col w-full h-full overflow-hidden bg-white border rounded-lg shadow-md">
                 <div class="flex items-center px-3 border-b">
@@ -359,39 +272,9 @@
                         <circle cx="11" cy="11" r="8"></circle>
                         <line x1="21" x2="16.65" y1="21" y2="16.65"></line>
                     </svg>
-                    <input type="text" x-ref="commandInput" x-model="commandSearch"
+                    <input type="text" x-ref="commandInput"
                         class="flex w-full px-2 py-3 text-sm bg-transparent border-0 rounded-md outline-none focus:outline-none focus:ring-0 focus:border-0 placeholder:text-neutral-400 h-11 disabled:cursor-not-allowed disabled:opacity-50"
                         placeholder="Type to search" autocomplete="on" autocorrect="off" spellcheck="false">
-                </div>
-                <div x-ref="commandItemsList" class="max-h-[320px] overflow-y-auto overflow-x-hidden">
-                    <template x-for="(item, index) in commandItemsFiltered" :key="'item-' + index">
-
-                        <div class="pb-1 space-y-1">
-                            <template x-if="commandShowCategory(item, index)">
-                                <div class="px-1 overflow-hidden text-gray-700">
-                                    <div class="px-2 py-1 my-1 text-xs font-medium text-neutral-500"
-                                        x-text="commandCategoryCapitalize(item.category)"></div>
-                                </div>
-                            </template>
-
-                            <template x-if="(item.default && commandSearchIsEmpty()) || !commandSearchIsEmpty()">
-                                <div class="px-1">
-                                    <div :id="item.value + '-' + commandId" @click="commandItemSelected=item"
-                                        @mousemove="commandItemActive=item"
-                                        :class="{ 'bg-neutral-100 text-gray-900' : commandItemIsActive(item) }"
-                                        class="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
-                                        <span x-html="item.icon"></span>
-                                        <span x-text="item.title"></span>
-                                        <template x-if="item.right">
-                                            <span class="ml-auto text-xs tracking-widest text-muted-foreground"
-                                                x-text="item.right"></span>
-                                        </template>
-                                    </div>
-                                </div>
-                            </template>
-                        </div>
-
-                    </template>
                 </div>
             </div>
         </div>
@@ -402,133 +285,8 @@
         <div class="w-full px-5 py-10 mx-auto space-y-5 sm:py-8 md:py-12 sm:space-y-8 md:space-y-16 max-w-7xl"
             style="margin-top: -300px;">
 
-            <div class="flex flex-col items-center sm:px-5 md:flex-row">
-                <div class="w-full md:w-1/2">
-                    <a href="#_" class="block">
-                        <img class="object-cover w-full h-full rounded-lg max-h-64 sm:max-h-96"
-                            src="https://cdn.devdojo.com/images/may2021/cupcakes.jpg">
-                    </a>
-                </div>
-                <div class="flex flex-col items-start justify-center w-full h-full py-6 mb-6 md:mb-0 md:w-1/2">
-                    <div
-                        class="flex flex-col items-start justify-center h-full space-y-3 transform md:pl-10 lg:pl-16 md:space-y-5">
-                        <div
-                            class="bg-gray-800 flex items-center pl-2 pr-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
-                            <svg class="w-3.5 h-3.5 mr-1" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                </path>
-                            </svg>
-                            <span>Featured</span>
-                        </div>
-                        <h1 class="text-4xl font-bold leading-none lg:text-5xl xl:text-6xl"><a href="#_">Savory
-                                Templates. Sweet Designs.</a></h1>
-                        <p class="pt-2 text-sm font-medium">by <a href="#_" class="mr-1 underline">John Doe</a> · <span
-                                class="mx-1">April 23rd, 2021</span> · <span class="mx-1 text-gray-600">5 min.
-                                read</span></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex grid grid-cols-12 pb-10 sm:px-5 gap-x-8 gap-y-16">
-                <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
-                    <a href="#_" class="block">
-                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56"
-                            src="https://cdn.devdojo.com/images/may2021/fruit.jpg">
-                    </a>
-                    <div
-                        class="bg-purple-500 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
-                        <span>Lifestyle</span>
-                    </div>
-                    <h2 class="text-lg font-bold sm:text-xl md:text-2xl"><a href="#_">Creating a Future Worth Living</a>
-                    </h2>
-                    <p class="text-sm text-gray-500">Learn the attributes you need to gain in order to build a future
-                        and create a life that you are truly happy with.</p>
-                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Mary Jane</a> · <span
-                            class="mx-1">April 17, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
-                </div>
-
-                <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
-                    <a href="#_" class="block">
-                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56"
-                            src="https://cdn.devdojo.com/images/may2021/workout.jpg">
-                    </a>
-                    <div
-                        class="bg-pink-500 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
-                        <span>Health</span>
-                    </div>
-                    <h2 class="text-lg font-bold sm:text-xl md:text-2xl">The Healther Version of Yourself</h2>
-                    <p class="text-sm text-gray-500">If you want to excel in life and become a better version of
-                        yourself, you'll need to upgrade your life.</p>
-                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Fred Jones</a> · <span
-                            class="mx-1">April 10, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
-                </div>
-
-                <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
-                    <a href="#_" class="block">
-                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56"
-                            src="https://cdn.devdojo.com/images/may2021/food.jpg">
-                    </a>
-                    <div
-                        class="bg-red-500 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
-                        <span>Food</span>
-                    </div>
-                    <h2 class="text-lg font-bold sm:text-xl md:text-2xl">Enjoy the Meals of the Kings</h2>
-                    <p class="text-sm text-gray-500">Take the time to enjoy the life that you've created. It's totally
-                        fine to live like kings and eat like royalty.</p>
-                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Mike Roberts</a> · <span
-                            class="mx-1">April 6, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
-                </div>
-
-                <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
-                    <a href="#_" class="block">
-                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg max-h-56"
-                            src="https://cdn.devdojo.com/images/may2021/books.jpg">
-                    </a>
-                    <div
-                        class="bg-blue-500 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
-                        <span>Motivation</span>
-                    </div>
-                    <h2 class="text-lg font-bold sm:text-xl md:text-2xl">Writing for Success</h2>
-                    <p class="text-sm text-gray-500">Writing about your plans for success is extremely helpful for
-                        yourself and it will allow you to share your story.</p>
-                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Tom Johnson</a> · <span
-                            class="mx-1">May 25, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
-                </div>
-
-                <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
-                    <a href="#_" class="block">
-                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg max-h-56"
-                            src="https://cdn.devdojo.com/images/may2021/clock.jpg">
-                    </a>
-                    <div
-                        class="bg-gray-800 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
-                        <span>Business</span>
-                    </div>
-                    <h2 class="text-lg font-bold sm:text-xl md:text-2xl">Simple Time Management</h2>
-                    <p class="text-sm text-gray-500">Managing your time can make the difference between getting ahead in
-                        life or staying exactly where you are.</p>
-                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Scott Reedman</a> · <span
-                            class="mx-1">May 18, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
-                </div>
-
-                <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
-                    <a href="#_" class="block">
-                        <img class="object-cover w-full mb-2 overflow-hidden rounded-lg max-h-56"
-                            src="https://cdn.devdojo.com/images/may2021/lemons.jpg">
-                    </a>
-                    <div
-                        class="bg-yellow-400 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
-                        <span>Nutrition</span>
-                    </div>
-                    <h2 class="text-lg font-bold sm:text-xl md:text-2xl">The Fruits Life</h2>
-                    <p class="text-sm text-gray-500">Take a moment and enjoy to enjoy the many fruits of life.
-                        Relaxation and a healthy diet can go a long way.</p>
-                    <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">Jake Caldwell</a> · <span
-                            class="mx-1">May 15, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
-                </div>
-
+            <div class="flex grid grid-cols-12 pb-10 sm:px-5 gap-x-8 gap-y-16" id="news">
+                <!--  -->
             </div>
         </div>
     </section>
@@ -544,11 +302,11 @@
                     <div class="relative z-10 h-auto p-8 py-10 overflow-hidden bg-white border-b-2 border-gray-700 rounded-lg shadow-2xl px-7"
                         data-rounded="rounded-lg" data-rounded-max="rounded-full">
                         <h3 class="mb-6 text-2xl font-medium text-center">Hãy nêu cảm nhận của bạn về Báo2.</h3>
-                        <input type="text" name="email" id="email"
+                        <input type="text" name="rating" id="rating"
                             class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 transition duration-300 rounded-lg focus:ring focus:ring-indigo-800 focus:outline-none"
                             data-rounded="rounded-lg" data-primary="blue-500"
                             placeholder="Cảm nhận của bạn về Báo2 thế nào?">
-                        <input type="password" name="password" id="password"
+                        <input type="text" name="improvements" id="improvements"
                             class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 transition duration-300 rounded-lg focus:ring focus:ring-indigo-800 focus:outline-none"
                             data-rounded="rounded-lg" data-primary="blue-500"
                             placeholder="Bạn có mong muốn gì về Báo2?">
@@ -568,7 +326,7 @@
                         </div>
 
                         <div class="block" style="margin-top: 20px">
-                            <button
+                            <button onclick="Submit()"
                                 class="w-full px-3 py-4 font-medium text-white bg-indigo-800 rounded-lg hover:bg-gray-900 transition duration-300"
                                 data-primary="blue-600" data-rounded="rounded-lg">Đánh giá</button>
                         </div>
@@ -581,6 +339,34 @@
 
             </div>
     </section>
+
+
+
+
+    <script>
+        function Submit() {
+            const rating = document.getElementById('rating').value;
+            const rating_1 = document.getElementById('rating-1').checked;
+            const rating_2 = document.getElementById('rating-2').checked;
+            const rating_3 = document.getElementById('rating-3').checked;
+            const rating_4 = document.getElementById('rating-4').checked;
+            const rating_5 = document.getElementById('rating-5').checked;
+            const improvements = document.getElementById('improvements').value;
+
+            if ((!rating_1 && !rating_2 && !rating_3 && !rating_4 && !rating_5) || rating == "" || improvements == "") {
+                alert('Chưa điền đủ thông tin!')
+                return;
+            }
+            alert("Cảm ơn bạn đã gửi ý kiến!");
+            document.getElementById('rating').value = '';
+            document.getElementById('rating-1').checked = false;
+            document.getElementById('rating-2').checked = false;
+            document.getElementById('rating-3').checked = false;
+            document.getElementById('rating-4').checked = false;
+            document.getElementById('rating-5').checked = false;
+            document.getElementById('improvements').value = '';
+
+        }</script>
 
 
 
@@ -641,6 +427,43 @@
 
 
 
+
+
+    <script>
+        // Đường dẫn API
+        const apiEndpoint = "https://newsapi.org/v2/top-headlines?country=us&apiKey=3100c62264e044b1a12cefdacb3f6c1c";
+        // Element sẽ dùng để hiển thị danh sách sản phẩm
+        const productsContainer = document.getElementById("news");
+
+        // Lấy dữ liệu từ API
+        fetch(apiEndpoint)
+            .then(response => response.json())
+            .then(data => {
+                // console.log(data);
+                // [{ id: 1, title: '...', price: 0, ... }, { id: 2, title: '...', price: 0, ... }, ... ]
+
+                // Render HTML
+                data.articles.forEach(product => {
+                    productsContainer.innerHTML += `
+                    <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
+                        <a href="#_" class="block">
+                            <img class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm aspect-video"
+                                src="${product.urlToImage}">
+                        </a>
+                        <div
+                            class="bg-indigo-800 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
+                            <span>${product.source.name}</span>
+                        </div>
+                        <h2 class="text-lg font-bold sm:text-xl md:text-2xl"><a href="${product.url}" target="_blank">${product.title}</a>
+                        </h2>
+                        <p class="text-sm text-gray-500">${product.description}</p>
+                        <p class="pt-2 text-xs font-medium"><a href="#_" class="mr-1 underline">${product.author}</a> · <span
+                                class="mx-1">April 17, 2021</span> · <span class="mx-1 text-gray-600">${product.publishedAt}</span></p>
+                    </div>
+                    `;
+                });
+            });
+    </script>
 
 
 
