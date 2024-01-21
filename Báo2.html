@@ -272,7 +272,8 @@
                     </svg>
                     <input type="text" x-ref="commandInput"
                         class="flex w-full px-2 py-3 text-sm bg-transparent border-0 rounded-md outline-none focus:outline-none focus:ring-0 focus:border-0 placeholder:text-neutral-400 h-11 disabled:cursor-not-allowed disabled:opacity-50"
-                        placeholder="Hãy nhập vào đây để tìm kiếm" autocomplete="on" autocorrect="off" spellcheck="false">
+                        placeholder="Hãy nhập vào đây để tìm kiếm" autocomplete="on" autocorrect="off"
+                        spellcheck="false">
                 </div>
             </div>
         </div>
@@ -428,6 +429,27 @@
 
 
     <script>
+
+        function convertDatetimeWithTimezoneToDmy(datetimeString, timezone) {
+            // Create a new Date object with the provided datetime string
+            const date = new Date(datetimeString);
+
+            // Set the timezone offset in minutes
+            // const timezoneOffset = (new Date().getTimezoneOffset() + timezone * 60) * 60000;
+
+            // Adjust the date based on the timezone offset
+            const adjustedDate = new Date(date.getTime());
+
+            // Define the options for formatting the date
+            const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+
+            // Convert the adjusted date to the desired format
+            const formattedDate = adjustedDate.toLocaleDateString('en-GB', options);
+
+            return formattedDate;
+        }
+
+
         // Đường dẫn API
         const apiEndpoint = "https://newsapi.org/v2/top-headlines?country=us&apiKey=3100c62264e044b1a12cefdacb3f6c1c";
         // Element sẽ dùng để hiển thị danh sách sản phẩm
@@ -446,17 +468,18 @@
                     <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
                         <a href="#_" class="block">
                             <img class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm aspect-video"
-                                src="${product.urlToImage}">
+                            onerror="this.src='https://img.freepik.com/free-photo/top-view-old-french-newspaper-pieces_23-2149318857.jpg?w=826&t=st=1705822663~exp=1705823263~hmac=383e96454b1f1a1ed4e49c6768d439e7c3223d930cf7af3614ada4f222f9f3ad'"
+                                src="${product.urlToImage ?? 'https://img.freepik.com/free-photo/top-view-old-french-newspaper-pieces_23-2149318857.jpg?w=826&t=st=1705822663~exp=1705823263~hmac=383e96454b1f1a1ed4e49c6768d439e7c3223d930cf7af3614ada4f222f9f3ad'}">
                         </a>
                         <div
                             class="bg-indigo-800 hover:bg-black transition duration-300 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
-                            <span>${product.source.name}</span>
+                            <span>${product.source.name ?? ''}</span>
                         </div>
-                        <h2 class="text-lg font-bold sm:text-xl md:text-2xl"><a href="${product.url}" target="_blank" class="hover:text-indigo-800 transition duration-300">${product.title}</a>
+                        <h2 class="text-lg font-bold sm:text-xl md:text-2xl"><a href="${product.url}" target="_blank" class="hover:text-indigo-800 transition duration-300 line-clamp-3">${product.title}</a>
                         </h2>
-                        <p class="text-sm text-gray-500">${product.description}</p>
-                        <p class="pt-2 text-xs font-medium hover:text-indigo-800 transition duration-300"><a href="#_" class="mr-1 underline">${product.author}</a> · <span
-                                class="mx-1">${product.publishedAt}</span></p>
+                        <p class="text-sm text-gray-500 line-clamp-3">${product.description ?? 'Unknown'}</p>
+                        <p class="pt-2 text-xs font-medium hover:text-indigo-800 transition duration-300"><a href="#_" class="mr-1 underline">${product.author ?? 'Anonymous'}</a> · <span
+                                class="mx-1">${product.publishedAt ? convertDatetimeWithTimezoneToDmy(product.publishedAt) : ''}</span></p>
                     </div>
                     `;
                 });
